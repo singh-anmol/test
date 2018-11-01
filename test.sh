@@ -22,7 +22,12 @@ mkdir $DEST_FOLDER
 cp -r $SOURCE_FOLDER/* $DEST_FOLDER
 echo '---\nlayout: default \n---''\n'"$(cat readme.md)" >  $DEST_FOLDER/index.markdown
 
-cd gh-pages
+openssl aes-256-cbc -K $encrypted_15f3c740145e_key -iv $encrypted_15f3c740145e_iv -in github.enc -out github -d
+chmod 600 ../deploy_key
+eval `ssh-agent -s`
+ssh-add ../deploy_key
+
+cd $DEST_FOLDER
 git init
 git add .
 git commit -m "Deploy to Github Pages"
