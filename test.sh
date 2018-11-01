@@ -29,6 +29,7 @@ ssh-add github
 
 cd $DEST_FOLDER
 git init
+git checkout -b gh-pages
 git add .
 git commit -m "Deploy to Github Pages"
 git push --force $SSH_REPO $TARGET_BRANCH
