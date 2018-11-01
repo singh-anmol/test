@@ -23,9 +23,9 @@ cp -r $SOURCE_FOLDER/* $DEST_FOLDER
 echo '---\nlayout: default \n---''\n'"$(cat readme.md)" >  $DEST_FOLDER/index.markdown
 
 openssl aes-256-cbc -K $encrypted_15f3c740145e_key -iv $encrypted_15f3c740145e_iv -in github.enc -out github -d
-chmod 600 ../deploy_key
+chmod 600 github
 eval `ssh-agent -s`
-ssh-add ../deploy_key
+ssh-add github
 
 cd $DEST_FOLDER
 git init
