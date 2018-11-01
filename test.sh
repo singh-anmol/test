@@ -20,7 +20,7 @@ cd phimp
 rm -rf $DEST_FOLDER
 mkdir $DEST_FOLDER
 cp -r $SOURCE_FOLDER/* $DEST_FOLDER
-echo '---\nlayout: default \n---''\n'"$(cat readme.md)" >  $DEST_FOLDER/index.markdown
+echo '---\nlayout: default \n---\n'"$(cat readme.md)" >  $DEST_FOLDER/index.markdown
 
 openssl aes-256-cbc -K $encrypted_15f3c740145e_key -iv $encrypted_15f3c740145e_iv -in github.enc -out github -d
 chmod 600 github
